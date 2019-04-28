@@ -39,33 +39,6 @@ namespace SampleApi
 
                     options.ApiName = "api1";
                     options.ApiSecret = "secret";
-
-                    options.JwtBearerEvents = new JwtBearerEvents
-                    {
-                        OnMessageReceived = e =>
-                        {
-                            _logger.LogTrace("JWT: message received");
-                            return Task.CompletedTask;
-                        },
-
-                        OnTokenValidated = e =>
-                        {
-                            _logger.LogTrace("JWT: token validated");
-                            return Task.CompletedTask;
-                        },
-
-                        OnAuthenticationFailed = e =>
-                        {
-                            _logger.LogTrace("JWT: authentication failed");
-                            return Task.CompletedTask;
-                        },
-
-                        OnChallenge = e =>
-                        {
-                            _logger.LogTrace("JWT: challenge");
-                            return Task.CompletedTask;
-                        }
-                    };
                 })
                 .AddCertificate("x509", options =>
                 {

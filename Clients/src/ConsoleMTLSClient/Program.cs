@@ -25,7 +25,7 @@ namespace ConsoleMTLSClient
         static async Task<TokenResponse> RequestTokenAsync()
         {
             var handler = new HttpClientHandler();
-            var cert = X509.CurrentUser.My.Thumbprint.Find("bca0d040847f843c5ee0fa6eb494837470155868").Single();
+            var cert = X509.CurrentUser.My.Thumbprint.Find("bf6e2ca4f07994430b86bf9d48833a33f27a5c24").Single();
             handler.ClientCertificates.Add(cert);
 
             var client = new HttpClient(handler);
@@ -49,7 +49,7 @@ namespace ConsoleMTLSClient
             var baseAddress = Constants.SampleApi;
 
             var handler = new HttpClientHandler();
-            var cert = X509.CurrentUser.My.Thumbprint.Find("bca0d040847f843c5ee0fa6eb494837470155868").Single();
+            var cert = X509.CurrentUser.My.Thumbprint.Find("bf6e2ca4f07994430b86bf9d48833a33f27a5c24").Single();
             handler.ClientCertificates.Add(cert);
 
             var client = new HttpClient(handler)
