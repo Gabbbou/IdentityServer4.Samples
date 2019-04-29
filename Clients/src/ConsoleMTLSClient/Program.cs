@@ -35,7 +35,11 @@ namespace ConsoleMTLSClient
 
             var response = await client.RequestClientCredentialsTokenAsync(new ClientCredentialsTokenRequest
             {
-                Address = disco.TryGetValue("mtls_endpoint_aliases").Value<string>("token_endpoint").ToString(),
+                Address = disco
+                            .TryGetValue(OidcConstants.Discovery.MtlsEndpointAliases)
+                            .Value<string>(OidcConstants.Discovery.TokenEndpoint)
+                            .ToString(),
+
                 ClientId = "mtls",
                 Scope = "api1"
             });
